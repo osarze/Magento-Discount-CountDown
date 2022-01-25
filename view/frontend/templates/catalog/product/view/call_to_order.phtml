@@ -1,0 +1,53 @@
+<h2 style="text-align: center; padding: 5px 0 20px; font-size: 2.2em;">For Bulk Orders <a href="tel:(01) 4536190"> Call (01) 4536190</a>.</h2>
+<div id="discount-countdown-timer">
+	Sales End In:
+    <ul>
+        <li><span id="days"></span>days</li>
+        <li><span id="hours"></span>Hours</li>
+        <li><span id="minutes"></span>Minutes</li>
+    </ul>
+</div>
+        <!-- <li><span id="seconds"></span>Seconds</li> -->
+
+<script>
+    require([
+        'jquery',
+    ], function ($) {
+        $(document).ready(function () {
+            let x = setInterval(countDown, 60000);
+            
+            function countDown() {
+                const second = 1000,
+                    minute = second * 60,
+                    hour = minute * 60,
+                    day = hour * 24;
+
+                let birthday = "June 30, 2022 23:59:00",
+                countDown = new Date(birthday).getTime();
+
+                let now = new Date().getTime(),
+                    distance = countDown - now;
+
+                let days = document.getElementById("days");
+                let minutes = document.getElementById("minutes");
+                let hours = document.getElementById("hours");
+                // let seconds = document.getElementById("seconds");
+
+                if(distance >= 0){
+                    days.innerText = Math.floor(distance / (day)),
+                    hours.innerText = Math.floor((distance % (day)) / (hour)),
+                    minutes.innerText = Math.floor((distance % (hour)) / (minute));
+                    // seconds.innerText = Math.floor((distance % (minute)) / second);
+                }else{
+                    document.getElementById("days").innerText = 0,
+                    hours.innerText = 0,
+                    minutes.innerText = 0,
+                    // seconds.innerText = 0;
+                    clearInterval(x);
+                }
+            }  
+            countDown(); 
+        
+        });
+    })
+</script>

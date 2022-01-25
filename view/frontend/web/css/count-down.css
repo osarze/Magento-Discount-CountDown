@@ -1,0 +1,22 @@
+#discount-countdown-timer ul {
+	margin-bottom: 30px;
+    text-align: center;
+    background-color: #6EC1E4;
+    color: #fff;
+}
+
+#discount-countdown-timer {
+	font-size: 1.5em;
+}
+#discount-countdown-timer li {
+  display: inline-block;
+  /*font-size: 1.5em;*/
+  list-style-type: none;
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+#discount-countdown-timer li span {
+  display: block;
+  font-size: 4.5rem;
+}
